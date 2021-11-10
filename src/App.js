@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import allLevelData from "./allLevelData";
 // components
 import Navbar from "./components/Navbar";
@@ -37,8 +37,8 @@ function App() {
       />
       <div className="container">
         <AuthProvider>
-          <Switch>
-            <Route exact path="/" component={Home}>
+          <Routes>
+            <Route exact path="/" element={Home}>
               <Home
                 setLevel={setLevel}
                 levelData={levelData}
@@ -48,7 +48,7 @@ function App() {
                 setInInfo={setInInfo}
               />
             </Route>
-            <Route exact path="/game" component={Game}>
+            <Route exact path="/game" element={Game}>
               <Game
                 level={level}
                 username={username}
@@ -80,7 +80,7 @@ function App() {
                 setInInfo={setInInfo}
               />
             </Route>
-          </Switch>
+          </Routes>
         </AuthProvider>
       </div>
     </Router>
